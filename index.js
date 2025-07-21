@@ -16,7 +16,7 @@ const provider = new ethers.JsonRpcProvider(process.env.MONAD_RPC_URL);
 const wallet = new ethers.Wallet(process.env.WALLET_PRIVATE_KEY, provider);
 
 // Configuration
-const FAUCET_AMOUNT = ethers.parseEther('0.05'); // 0.05 MON per request
+const FAUCET_AMOUNT = ethers.parseEther('0.1'); // 0.1 MON per request
 const COOLDOWN = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
 const CHANNEL_ID = '1373624652496240681'; // Replace with your Discord channel ID
 const userRequests = new Map(); // Track user request timestamps
@@ -76,7 +76,7 @@ client.on('messageCreate', async (message) => {
       // Send success message with transaction link
       const txHash = tx.hash;
       const explorerUrl = `https://testnet.monvision.io/tx/${txHash}`;  // Adjust if Monad has a different explorer
-      message.reply(`Sent 0.05 MON to ${walletAddress}! Tx: ${explorerUrl}`);
+      message.reply(`Sent 0.1 MON to ${walletAddress}! Tx: ${explorerUrl}`);
     } catch (error) {
       console.error(error);
       message.reply('Failed to send MON. Please try again later or contact the admin.');
